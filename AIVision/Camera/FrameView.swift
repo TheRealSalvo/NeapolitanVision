@@ -1,8 +1,34 @@
 //
-//  FrameView.swift
-//  AIVision
+//  VideoInput.swift
+//  AppDevelopmentWS
 //
-//  Created by Salvatore Attanasio on 22/11/23.
+//  Created by Salvatore Attanasio on 14/11/23.
 //
 
-import Foundation
+import SwiftUI
+
+struct FrameView: View {
+    
+    var image: CGImage?
+    private let label = Text("frame")
+    
+    var body: some View {
+        VStack {
+            if let image = image {
+                Image (image, scale:
+                        1.0, orientation: .up, label: label)
+            } else {
+                Color.black
+                //Image("Image")
+            }
+        }
+        
+    }
+}
+
+struct FrameView_Previews: PreviewProvider {
+    static var previews: some View {
+        FrameView()
+    }
+}
+

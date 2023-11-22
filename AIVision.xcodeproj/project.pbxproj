@@ -13,12 +13,12 @@
 		54CFF4C92B076F6600CB518A /* AIVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4C82B076F6600CB518A /* AIVisionApp.swift */; };
 		54CFF4CD2B076F6700CB518A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CFF4CC2B076F6700CB518A /* Assets.xcassets */; };
 		54CFF4D02B076F6700CB518A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CFF4CF2B076F6700CB518A /* Preview Assets.xcassets */; };
-		54CFF4DA2B076F9700CB518A /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4D72B076F9700CB518A /* FrameView.swift */; };
-		54CFF4DB2B076F9700CB518A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4D82B076F9700CB518A /* CameraView.swift */; };
-		54CFF4DC2B076F9700CB518A /* FrameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4D92B076F9700CB518A /* FrameHandler.swift */; };
 		54CFF4EA2B07757A00CB518A /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4E92B07757A00CB518A /* ImageClassifier.swift */; };
 		54CFF4ED2B078E3A00CB518A /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4EB2B078E3900CB518A /* Resnet50.mlmodel */; };
 		54CFF4EE2B078E3A00CB518A /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4EC2B078E3900CB518A /* MobileNetV2.mlmodel */; };
+		54DED6FB2B0E1CBA0034BA93 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */; };
+		54DED6FD2B0E1CDF0034BA93 /* FrameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */; };
+		54DED6FF2B0E1D220034BA93 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FE2B0E1D220034BA93 /* FrameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +30,12 @@
 		54CFF4C82B076F6600CB518A /* AIVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIVisionApp.swift; sourceTree = "<group>"; };
 		54CFF4CC2B076F6700CB518A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54CFF4CF2B076F6700CB518A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		54CFF4D72B076F9700CB518A /* FrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameView.swift; path = ../../../AppDevelopmentWS/AppDevelopmentWS/VideoCapture/FrameView.swift; sourceTree = "<group>"; };
-		54CFF4D82B076F9700CB518A /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = ../../../AppDevelopmentWS/AppDevelopmentWS/VideoCapture/CameraView.swift; sourceTree = "<group>"; };
-		54CFF4D92B076F9700CB518A /* FrameHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameHandler.swift; path = ../../../AppDevelopmentWS/AppDevelopmentWS/VideoCapture/FrameHandler.swift; sourceTree = "<group>"; };
 		54CFF4E92B07757A00CB518A /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
 		54CFF4EB2B078E3900CB518A /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		54CFF4EC2B078E3900CB518A /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameHandler.swift; sourceTree = "<group>"; };
+		54DED6FE2B0E1D220034BA93 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				5439861E2B07C51500E52927 /* DetectionView.swift */,
-				54CFF4D82B076F9700CB518A /* CameraView.swift */,
-				54CFF4D92B076F9700CB518A /* FrameHandler.swift */,
-				54CFF4D72B076F9700CB518A /* FrameView.swift */,
+				54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */,
+				54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */,
+				54DED6FE2B0E1D220034BA93 /* FrameView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -196,15 +196,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5412D5B72B0B675E0090BF5E /* YOLOv3.mlmodel in Sources */,
-				54CFF4DA2B076F9700CB518A /* FrameView.swift in Sources */,
 				54CFF4C92B076F6600CB518A /* AIVisionApp.swift in Sources */,
-				54CFF4DB2B076F9700CB518A /* CameraView.swift in Sources */,
+				54DED6FD2B0E1CDF0034BA93 /* FrameHandler.swift in Sources */,
 				5439861D2B07C09D00E52927 /* ImageDetector.swift in Sources */,
 				54CFF4EA2B07757A00CB518A /* ImageClassifier.swift in Sources */,
 				5439861F2B07C51500E52927 /* DetectionView.swift in Sources */,
-				54CFF4DC2B076F9700CB518A /* FrameHandler.swift in Sources */,
 				54CFF4ED2B078E3A00CB518A /* Resnet50.mlmodel in Sources */,
 				54CFF4EE2B078E3A00CB518A /* MobileNetV2.mlmodel in Sources */,
+				54DED6FF2B0E1D220034BA93 /* FrameView.swift in Sources */,
+				54DED6FB2B0E1CBA0034BA93 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
