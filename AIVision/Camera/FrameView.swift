@@ -19,7 +19,6 @@ struct FrameView: View {
                         1.0, orientation: .up, label: label)
             } else {
                 Color.black
-                //Image("Image")
             }
         }
         
