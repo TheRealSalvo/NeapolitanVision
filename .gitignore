@@ -1,6 +1,7 @@
 ### Specific for this project
 # Don't track mlmodels with git
 *.mlmodel
+.DS_Store
 
 ### General
 
