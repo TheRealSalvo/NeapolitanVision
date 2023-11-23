@@ -14,6 +14,7 @@ struct CameraView: View {
     let imageClassifier = ImageClassifier()
     
     @State var classificationLabel : String = "No Label"
+    @State var isShowingDetectableItemsView = false
     
     private func classifyCurrentFrame() {
         let image = UIImage(cgImage: model.frame!)
@@ -54,57 +55,62 @@ struct CameraView: View {
     
     var body: some View {
         
-        VStack{
-            Text(classificationLabel)
-                .font(.title)
-                .foregroundStyle(.white)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 25.0)
-                        .fill(.black)
-                )
-            
-            Spacer()
-            
-            ScrollView(.horizontal){
-                HStack{
-                    Button(
-                        action: {
-                            DispatchQueue.global().async(execute: classifyCurrentFrame)
-                        },
-                        label: {
-                            Text("Explore")
-                        }
-                    )
-                    .frame(minWidth: 75, minHeight: 75)
+        NavigationStack{
+            VStack{
+                Text(classificationLabel)
+                    .font(.title)
+                    .foregroundStyle(.white)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 25.0)
                             .fill(.black)
                     )
-                    Button(
-                        action: {
-                            DispatchQueue.global().async(execute: classifyCurrentFrame)
-                        },
-                        label: {
-                            Text("Find")
-                        }
-                    )
-                    .frame(minWidth: 75, minHeight: 75)
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(.black)
-                    )
+                
+                Spacer()
+                
+                ScrollView(.horizontal){
+                    HStack{
+                        Button(
+                            action: {
+                                DispatchQueue.global().async(execute: classifyCurrentFrame)
+                            },
+                            label: {
+                                Text("Explore")
+                            }
+                        )
+                        .frame(minWidth: 75, minHeight: 75)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(.black)
+                        )
+                        
+                        Button(
+                            action: {
+                                isShowingDetectableItemsView = true
+                            },
+                            label: {
+                                Text("Find")
+                            }
+                        )
+                        .frame(minWidth: 75, minHeight: 75)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(.black)
+                        )
+                    }
                 }
             }
+            .padding()
+            .background {
+                FrameView(image: model.frame)
+                    .ignoresSafeArea()
+            }
+            .navigationDestination(isPresented: $isShowingDetectableItemsView) {
+                DetectableItemsListView()
+            }
         }
-        .padding()
-        .background {
-            FrameView(image: model.frame)
-                .ignoresSafeArea()
-        }
-        
     }
 }
 
