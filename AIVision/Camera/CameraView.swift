@@ -33,11 +33,12 @@ struct CameraView: View {
     }
     
     private func updateClassificationLabel(_ newValue: String){
-        if newValue == classificationLabel { return }
+        let firstValue = newValue.components(separatedBy: [","])[0]
+        if firstValue == classificationLabel { return }
         
-        self.classificationLabel = newValue
+        self.classificationLabel = firstValue
         if UIAccessibility.isVoiceOverRunning {
-            UIAccessibility.post(notification: .announcement, argument: newValue)
+            UIAccessibility.post(notification: .announcement, argument: firstValue)
         }
     }
     
@@ -70,14 +71,17 @@ struct CameraView: View {
             return
         }
         
-        print("OK")
-        print(predictions.first.debugDescription)
-        print(predictions[1].classification)
+        print(predictions[0].classification)
         
         guard let classification = predictions.first?.classification else{
             return
         }
-        updateClassificationLabel(classification)
+        
+        if(Double(predictions[0].confidencePercentage)! > 0.4){
+            updateClassificationLabel(classification)
+        }else{
+            print("Discarded!")
+        }
     }
     
     var body: some View {
