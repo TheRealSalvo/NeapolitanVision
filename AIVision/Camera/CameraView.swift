@@ -32,6 +32,26 @@ struct CameraView: View {
         }
     }
     
+    private func updateClassificationLabel(_ newValue: String){
+        if newValue == classificationLabel { return }
+        
+        self.classificationLabel = newValue
+        if UIAccessibility.isVoiceOverRunning {
+            UIAccessibility.post(notification: .announcement, argument: newValue)
+        }
+    }
+    
+    private func currentAccessibilityHint() -> String{
+        switch self.currentMode {
+        case .explore:
+            return "Explore mode activated"
+        case .find:
+            return "Find mode activated"
+        case .none:
+            return "Select App Mode"
+        }
+    }
+    
     private func classifyCurrentFrame() {
         let image = UIImage(cgImage: model.frame!)
         do {
@@ -57,7 +77,7 @@ struct CameraView: View {
         guard let classification = predictions.first?.classification else{
             return
         }
-        self.classificationLabel = "\(classification)"
+        updateClassificationLabel(classification)
     }
     
     var body: some View {
@@ -72,6 +92,7 @@ struct CameraView: View {
                         RoundedRectangle(cornerRadius: 25.0)
                             .fill(.black)
                     )
+                    .accessibilityHidden(true)
                 
                 Spacer()
                 
@@ -100,12 +121,15 @@ struct CameraView: View {
                                                 .fill(currentMode == .explore ? .purple : .black)
                                                 .stroke(.white, lineWidth: 3)
                                         )
+                                        .accessibilityHidden(true)
                                     
                                     Text("Explore")
                                         .foregroundColor(.white)
+                                        .accessibilityHidden(true)
                                 }
                             }
                         )
+                        .accessibilityHint("Toggle explore mode")
                         .frame(minWidth: 75, minHeight: 75)
                         .padding()
                         
@@ -131,22 +155,27 @@ struct CameraView: View {
                                                 .fill(currentMode == .find ? .purple : .black)
                                                 .stroke(.white, lineWidth: 3)
                                         )
+                                        .accessibilityHidden(true)
                                     
                                     Text("Find")
                                         .foregroundColor(.white)
+                                        .accessibilityHidden(true)
                                 }
                             }
                         )
+                        .accessibilityHint("Toggle Find mode")
                         .frame(minWidth: 75, minHeight: 75)
                         .padding()
                     }
                     .padding()
                 }
             }
+            .accessibilityHint(currentAccessibilityHint())
             .padding()
             .background {
                 FrameView(image: model.frame)
                     .ignoresSafeArea()
+                    .accessibilityHidden(true)
             }
             .navigationDestination(isPresented: $isShowingDetectableItemsView) {
                 DetectableItemsListView()
