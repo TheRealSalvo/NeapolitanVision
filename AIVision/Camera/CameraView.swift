@@ -54,7 +54,7 @@ struct CameraView: View {
     
     var body: some View {
         
-        VStack {
+        VStack{
             Text(classificationLabel)
                 .font(.title)
                 .foregroundStyle(.white)
@@ -66,8 +66,8 @@ struct CameraView: View {
             
             Spacer()
             
-            HStack {
-                ScrollView(.horizontal){
+            ScrollView(.horizontal){
+                HStack{
                     Button(
                         action: {
                             DispatchQueue.global().async(execute: classifyCurrentFrame)
@@ -76,6 +76,7 @@ struct CameraView: View {
                             Text("Explore")
                         }
                     )
+                    .frame(minWidth: 75, minHeight: 75)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 25.0)
@@ -89,6 +90,7 @@ struct CameraView: View {
                             Text("Find")
                         }
                     )
+                    .frame(minWidth: 75, minHeight: 75)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 25.0)
