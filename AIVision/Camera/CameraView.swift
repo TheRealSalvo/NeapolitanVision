@@ -77,7 +77,7 @@ struct CameraView: View {
             return
         }
         
-        if(Double(predictions[0].confidencePercentage)! > 0.4){
+        if(Double(predictions[0].confidencePercentage)! > 0.3){
             updateClassificationLabel(classification)
         }else{
             print("Discarded!")
