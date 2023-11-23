@@ -88,16 +88,26 @@ struct CameraView: View {
                                 DispatchQueue.global(qos: .background).async(execute: exploreMode)
                             },
                             label: {
-                                Text("Explore")
+                                VStack {
+                                    Image(systemName: "safari")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 75, height: 75)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 25.0)
+                                                .fill(currentMode == .explore ? .purple : .black)
+                                                .stroke(.white, lineWidth: 3)
+                                        )
+                                    
+                                    Text("Explore")
+                                        .foregroundColor(.white)
+                                }
                             }
                         )
                         .frame(minWidth: 75, minHeight: 75)
                         .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .fill(currentMode == .explore ? .purple : .black)
-                                .stroke(.white, lineWidth: 3)
-                        )
                         
                         Button(
                             action: {
@@ -109,16 +119,26 @@ struct CameraView: View {
                                 isShowingDetectableItemsView = true
                             },
                             label: {
-                                Text("Find")
+                                VStack {
+                                    Image(systemName: "vial.viewfinder")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 75, height: 75)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 25.0)
+                                                .fill(currentMode == .find ? .purple : .black)
+                                                .stroke(.white, lineWidth: 3)
+                                        )
+                                    
+                                    Text("Find")
+                                        .foregroundColor(.white)
+                                }
                             }
                         )
                         .frame(minWidth: 75, minHeight: 75)
                         .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .fill(currentMode == .find ? .purple : .black)
-                                .stroke(.white, lineWidth: 3)
-                        )
                     }
                     .padding()
                 }
