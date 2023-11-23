@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetectableItemsListView: View {
     
-    let objectList = ["person","bag","laptop","tv"]
+    let objectList = ["person","backpack","laptop","tv"]
     @Binding var selectedItem: String
     @Binding var isPresented : Bool
     var body: some View {
@@ -17,6 +17,7 @@ struct DetectableItemsListView: View {
             ForEach(objectList, id:\.self){ objectName in
                 Text(objectName)
                     .onTapGesture {
+                        selectedItem = objectName
                         isPresented.toggle()
                     }
             }
