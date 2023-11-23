@@ -16,6 +16,14 @@ struct CameraView: View {
     @State var classificationLabel : String = "No Label"
     @State var isShowingDetectableItemsView = false
     
+    enum AppMode{
+        case explore
+        case find
+        case none
+    }
+    
+    @State var currentMode: AppMode = .none
+    
     private func classifyCurrentFrame() {
         let image = UIImage(cgImage: model.frame!)
         do {
@@ -72,6 +80,11 @@ struct CameraView: View {
                     HStack{
                         Button(
                             action: {
+                                if(currentMode == .explore){
+                                    currentMode = .none
+                                    return
+                                }
+                                currentMode = .explore
                                 DispatchQueue.global().async(execute: classifyCurrentFrame)
                             },
                             label: {
@@ -82,11 +95,16 @@ struct CameraView: View {
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 25.0)
-                                .fill(.black)
+                                .fill(currentMode == .explore ? .purple : .black)
                         )
                         
                         Button(
                             action: {
+                                if(currentMode == .find){
+                                    currentMode = .none
+                                    return
+                                }
+                                currentMode = .find
                                 isShowingDetectableItemsView = true
                             },
                             label: {
@@ -97,7 +115,7 @@ struct CameraView: View {
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 25.0)
-                                .fill(.black)
+                                .fill(currentMode == .find ? .purple : .black)
                         )
                     }
                 }
