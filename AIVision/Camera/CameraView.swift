@@ -13,7 +13,7 @@ struct CameraView: View {
     @StateObject private var model = FrameHandler()
     let imageClassifier = ImageClassifier()
     
-    @State private var classificationLabel : String = "No Label"
+    @State private var classificationLabel : String = ""
     @State private var isShowingDetectableItemsView = false
     @State private var requestAvaible               = false
     
@@ -89,15 +89,17 @@ struct CameraView: View {
         
         NavigationStack{
             VStack{
-                Text(classificationLabel)
-                    .font(.title)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(.black)
-                    )
-                    .accessibilityHidden(true)
+                if(classificationLabel != ""){
+                    Text(classificationLabel)
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(.black)
+                        )
+                        .accessibilityHidden(true)
+                }
                 
                 Spacer()
                 
