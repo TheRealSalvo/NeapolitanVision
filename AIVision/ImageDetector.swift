@@ -129,14 +129,14 @@ class ImageDetector {
             return
         }
 
-//        // Cast the request's results as an `VNClassificationObservation` array.
-//        guard let observations = request.results as? [VNRecognizedObjectObservation] else {
-//            // Image classifiers, like MobileNet, only produce classification observations.
-//            // However, other Core ML model types can produce other observations.
-//            // For example, a style transfer model produces `VNPixelBufferObservation` instances.
-//            print("VNRequest produced the wrong result type: \(type(of: request.results)).")
-//            return
-//        }
+        // Cast the request's results as an `VNClassificationObservation` array.
+        guard let observations = request.results as? [VNRecognizedObjectObservation] else {
+            // Image classifiers, like MobileNet, only produce classification observations.
+            // However, other Core ML model types can produce other observations.
+            // For example, a style transfer model produces `VNPixelBufferObservation` instances.
+            print("VNRequest produced the wrong result type: \(type(of: request.results)).")
+            return
+        }
         
         for observation in request.results! where observation is VNRecognizedObjectObservation {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else {
@@ -148,12 +148,11 @@ class ImageDetector {
             print("Label is: \(topLabelObservation.identifier)")
             print("Confidence is: \(topLabelObservation.confidence)")
         }
-
-//        // Create a prediction array from the observations.
-//        predictions = observations.map { observation in
-//            // Convert each observation into an `ImagePredictor.Prediction` instance.
-//            Prediction(classification: observation.identifier,
-//                       confidencePercentage: observation.confidence.description)
-//        }
+        
+        predictions = observations.map { observation in
+            // Convert each observation into an `ImagePredictor.Prediction` instance.
+            Prediction(classification: observation.labels[0].identifier,
+                       confidencePercentage: observation.labels[0].confidence.description)
+        }
     }
 }
