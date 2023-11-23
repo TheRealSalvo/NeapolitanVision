@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5439861D2B07C09D00E52927 /* ImageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439861C2B07C09D00E52927 /* ImageDetector.swift */; };
-		5439861F2B07C51500E52927 /* DetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439861E2B07C51500E52927 /* DetectionView.swift */; };
 		54ACA3BB2B0EFE780007549B /* DetectableItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */; };
 		54CFF4C92B076F6600CB518A /* AIVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4C82B076F6600CB518A /* AIVisionApp.swift */; };
 		54CFF4CD2B076F6700CB518A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CFF4CC2B076F6700CB518A /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		5439861C2B07C09D00E52927 /* ImageDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetector.swift; sourceTree = "<group>"; };
-		5439861E2B07C51500E52927 /* DetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionView.swift; sourceTree = "<group>"; };
 		5443591A2B0C9950007A1732 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectableItemsListView.swift; sourceTree = "<group>"; };
 		54CFF4C52B076F6600CB518A /* AIVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +91,6 @@
 		54CFF4D62B076F7500CB518A /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				5439861E2B07C51500E52927 /* DetectionView.swift */,
 				54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */,
 				54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */,
 				54DED6FE2B0E1D220034BA93 /* FrameView.swift */,
@@ -190,7 +187,6 @@
 				5439861D2B07C09D00E52927 /* ImageDetector.swift in Sources */,
 				54CFF4EA2B07757A00CB518A /* ImageClassifier.swift in Sources */,
 				54ACA3BB2B0EFE780007549B /* DetectableItemsListView.swift in Sources */,
-				5439861F2B07C51500E52927 /* DetectionView.swift in Sources */,
 				54DED6FF2B0E1D220034BA93 /* FrameView.swift in Sources */,
 				54DED6FB2B0E1CBA0034BA93 /* CameraView.swift in Sources */,
 			);

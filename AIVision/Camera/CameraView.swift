@@ -10,10 +10,13 @@ import CoreML
 import Vision
 
 struct CameraView: View {
-    @StateObject private var model = FrameHandler()
-    let imageClassifier = ImageClassifier()
     
-    @State private var classificationLabel : String = "No Label"
+    @StateObject private var model = FrameHandler()
+    
+    let imageClassifier = ImageClassifier()
+    let imageDetector   = ImageDetector()
+    
+    @State private var classificationLabel : String = ""
     @State private var isShowingDetectableItemsView = false
     @State private var requestAvaible               = false
     
@@ -23,12 +26,20 @@ struct CameraView: View {
         case none
     }
     
-    @State var currentMode: AppMode = .none
+    @State var currentMode: AppMode   = .none
+    @State var objectToSearch: String = ""
     
     private func exploreMode() {
         while(self.currentMode == .explore){
             classifyCurrentFrame()
             sleep(1)
+        }
+    }
+    
+    private func findMode() {
+        while(self.currentMode == .find){
+            //if( self.objectToSearch == "" ) { continue }
+            detectOnCurrentFrame()
         }
     }
     
@@ -65,6 +76,19 @@ struct CameraView: View {
         }
     }
     
+    private func detectOnCurrentFrame() {
+        print("Detection")
+        let image = UIImage(cgImage: model.frame!)
+        do {
+            try self.imageDetector.makePredictions(
+                for: image,
+                completionHandler: imageDetectionHandler
+            )
+        } catch {
+            print("Vision was unable to make a prediction...\n\n\(error.localizedDescription)")
+        }
+    }
+    
     private func imagePredictionHandler(_ predictions: [ImageClassifier.Prediction]?) {
         guard let predictions = predictions else {
             print("No predictions. (Check console log.)")
@@ -84,19 +108,45 @@ struct CameraView: View {
         }
     }
     
+    private func imageDetectionHandler(_ predictions: [ImageDetector.Prediction]?) {
+        guard let predictions = predictions else {
+            print("No predictions. (Check console log.)")
+            return
+        }
+        
+        print(predictions.debugDescription)
+        
+        guard let classification = predictions.first?.classification else{
+            return
+        }
+        
+        print("searcing for \(objectToSearch)")
+        print("found \(predictions.first.debugDescription)")
+        if(classification == objectToSearch){
+            print("Found it!")
+            let generator = UIImpactFeedbackGenerator()
+            generator.prepare()
+            generator.impactOccurred()
+        }else{
+            print("Discarded!")
+        }
+    }
+    
     var body: some View {
         
         NavigationStack{
             VStack{
-                Text(classificationLabel)
-                    .font(.title)
-                    .foregroundStyle(.white)
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(.black)
-                    )
-                    .accessibilityHidden(true)
+                if(classificationLabel != ""){
+                    Text(classificationLabel)
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(.black)
+                        )
+                        .accessibilityHidden(true)
+                }
                 
                 Spacer()
                 
@@ -106,6 +156,7 @@ struct CameraView: View {
                             action: {
                                 if(currentMode == .explore){
                                     currentMode = .none
+                                    updateClassificationLabel("")
                                     return
                                 }
                                 currentMode = .explore
@@ -141,10 +192,13 @@ struct CameraView: View {
                             action: {
                                 if(currentMode == .find){
                                     currentMode = .none
+                                    self.objectToSearch = ""
                                     return
                                 }
                                 currentMode = .find
                                 isShowingDetectableItemsView = true
+                                
+                                DispatchQueue.global(qos: .background).async(execute: findMode)
                             },
                             label: {
                                 VStack {
@@ -182,7 +236,10 @@ struct CameraView: View {
                     .accessibilityHidden(true)
             }
             .navigationDestination(isPresented: $isShowingDetectableItemsView) {
-                DetectableItemsListView()
+                DetectableItemsListView(
+                    selectedItem: $objectToSearch,
+                    isPresented: $isShowingDetectableItemsView
+                )
             }
         }
     }
