@@ -11,16 +11,7 @@ import SwiftUI
 struct AIVisionApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView{
-                CameraView()
-                    .tabItem {
-                        Image(systemName: "camera")
-                    }
-                DetectionView()
-                    .tabItem {
-                        Image(systemName: "camera.fill")
-                    }
-            }
+            CameraView()
         }
     }
 }
