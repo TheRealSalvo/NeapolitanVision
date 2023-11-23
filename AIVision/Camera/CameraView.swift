@@ -28,6 +28,7 @@ struct CameraView: View {
     private func exploreMode() {
         while(self.currentMode == .explore){
             classifyCurrentFrame()
+            sleep(1)
         }
     }
     
