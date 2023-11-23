@@ -23,7 +23,8 @@ struct CameraView: View {
         case none
     }
     
-    @State var currentMode: AppMode = .none
+    @State var currentMode: AppMode   = .none
+    @State var objectToSearch: String = ""
     
     private func exploreMode() {
         while(self.currentMode == .explore){
@@ -106,6 +107,7 @@ struct CameraView: View {
                             action: {
                                 if(currentMode == .explore){
                                     currentMode = .none
+                                    updateClassificationLabel("")
                                     return
                                 }
                                 currentMode = .explore
@@ -141,6 +143,7 @@ struct CameraView: View {
                             action: {
                                 if(currentMode == .find){
                                     currentMode = .none
+                                    self.objectToSearch = ""
                                     return
                                 }
                                 currentMode = .find
@@ -182,7 +185,10 @@ struct CameraView: View {
                     .accessibilityHidden(true)
             }
             .navigationDestination(isPresented: $isShowingDetectableItemsView) {
-                DetectableItemsListView()
+                DetectableItemsListView(
+                    selectedItem: $objectToSearch,
+                    isPresented: $isShowingDetectableItemsView
+                )
             }
         }
     }
