@@ -96,6 +96,7 @@ struct CameraView: View {
                         .background(
                             RoundedRectangle(cornerRadius: 25.0)
                                 .fill(currentMode == .explore ? .purple : .black)
+                                .stroke(.white, lineWidth: 3)
                         )
                         
                         Button(
@@ -116,8 +117,10 @@ struct CameraView: View {
                         .background(
                             RoundedRectangle(cornerRadius: 25.0)
                                 .fill(currentMode == .find ? .purple : .black)
+                                .stroke(.white, lineWidth: 3)
                         )
                     }
+                    .padding()
                 }
             }
             .padding()
