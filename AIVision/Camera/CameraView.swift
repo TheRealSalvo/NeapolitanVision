@@ -13,8 +13,9 @@ struct CameraView: View {
     @StateObject private var model = FrameHandler()
     let imageClassifier = ImageClassifier()
     
-    @State var classificationLabel : String = "No Label"
-    @State var isShowingDetectableItemsView = false
+    @State private var classificationLabel : String = "No Label"
+    @State private var isShowingDetectableItemsView = false
+    @State private var requestAvaible               = false
     
     enum AppMode{
         case explore
@@ -23,6 +24,12 @@ struct CameraView: View {
     }
     
     @State var currentMode: AppMode = .none
+    
+    private func exploreMode() {
+        while(self.currentMode == .explore){
+            classifyCurrentFrame()
+        }
+    }
     
     private func classifyCurrentFrame() {
         let image = UIImage(cgImage: model.frame!)
@@ -36,12 +43,8 @@ struct CameraView: View {
         }
     }
     
-    /// The method the Image Predictor calls when its image classifier model generates a prediction.
-    /// - Parameter predictions: An array of predictions.
-    /// - Tag: imagePredictionHandler
     private func imagePredictionHandler(_ predictions: [ImageClassifier.Prediction]?) {
         guard let predictions = predictions else {
-            //updatePredictionLabel("No predictions. (Check console log.)")
             print("No predictions. (Check console log.)")
             return
         }
@@ -54,11 +57,6 @@ struct CameraView: View {
             return
         }
         self.classificationLabel = "\(classification)"
-
-//        let formattedPredictions = formatPredictions(predictions)
-//
-//        let predictionString = formattedPredictions.joined(separator: "\n")
-//        updatePredictionLabel(predictionString)
     }
     
     var body: some View {
@@ -85,7 +83,8 @@ struct CameraView: View {
                                     return
                                 }
                                 currentMode = .explore
-                                DispatchQueue.global().async(execute: classifyCurrentFrame)
+                                
+                                DispatchQueue.global(qos: .background).async(execute: exploreMode)
                             },
                             label: {
                                 Text("Explore")
