@@ -11,7 +11,7 @@ import SwiftUI
 struct AIVisionApp: App {
     var body: some Scene {
         WindowGroup {
-            CameraView()
+            MainView()
         }
     }
 }

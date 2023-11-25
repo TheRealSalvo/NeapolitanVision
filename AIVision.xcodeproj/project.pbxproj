@@ -14,7 +14,7 @@
 		54CFF4CD2B076F6700CB518A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CFF4CC2B076F6700CB518A /* Assets.xcassets */; };
 		54CFF4D02B076F6700CB518A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54CFF4CF2B076F6700CB518A /* Preview Assets.xcassets */; };
 		54CFF4EA2B07757A00CB518A /* ImageClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4E92B07757A00CB518A /* ImageClassifier.swift */; };
-		54DED6FB2B0E1CBA0034BA93 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */; };
+		54DED6FB2B0E1CBA0034BA93 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FA2B0E1CBA0034BA93 /* MainView.swift */; };
 		54DED6FD2B0E1CDF0034BA93 /* FrameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */; };
 		54DED6FF2B0E1D220034BA93 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DED6FE2B0E1D220034BA93 /* FrameView.swift */; };
 		54DED7052B0E1FEA0034BA93 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54DED7032B0E1FEA0034BA93 /* MobileNetV2.mlmodel */; };
@@ -32,7 +32,7 @@
 		54CFF4CC2B076F6700CB518A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54CFF4CF2B076F6700CB518A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		54CFF4E92B07757A00CB518A /* ImageClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassifier.swift; sourceTree = "<group>"; };
-		54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		54DED6FA2B0E1CBA0034BA93 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameHandler.swift; sourceTree = "<group>"; };
 		54DED6FE2B0E1D220034BA93 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		54DED7032B0E1FEA0034BA93 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
@@ -59,6 +59,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		54249D4F2B12B45900A62BBB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54DED6FA2B0E1CBA0034BA93 /* MainView.swift */,
+				54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		54CFF4BC2B076F6600CB518A = {
 			isa = PBXGroup;
 			children = (
@@ -79,10 +88,11 @@
 		54CFF4C72B076F6600CB518A /* AIVision */ = {
 			isa = PBXGroup;
 			children = (
+				54CFF4C82B076F6600CB518A /* AIVisionApp.swift */,
+				54249D4F2B12B45900A62BBB /* Views */,
 				54249D4C2B12B22500A62BBB /* Utility */,
 				54DED7002B0E1E5F0034BA93 /* Models */,
 				54CFF4D62B076F7500CB518A /* Camera */,
-				54CFF4C82B076F6600CB518A /* AIVisionApp.swift */,
 				54CFF4CC2B076F6700CB518A /* Assets.xcassets */,
 				54CFF4CE2B076F6700CB518A /* Preview Content */,
 				54CFF4E92B07757A00CB518A /* ImageClassifier.swift */,
@@ -102,10 +112,8 @@
 		54CFF4D62B076F7500CB518A /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				54DED6FA2B0E1CBA0034BA93 /* CameraView.swift */,
 				54DED6FC2B0E1CDF0034BA93 /* FrameHandler.swift */,
 				54DED6FE2B0E1D220034BA93 /* FrameView.swift */,
-				54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -200,7 +208,7 @@
 				54249D4E2B12B24100A62BBB /* AppModeEnum.swift in Sources */,
 				54ACA3BB2B0EFE780007549B /* DetectableItemsListView.swift in Sources */,
 				54DED6FF2B0E1D220034BA93 /* FrameView.swift in Sources */,
-				54DED6FB2B0E1CBA0034BA93 /* CameraView.swift in Sources */,
+				54DED6FB2B0E1CBA0034BA93 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

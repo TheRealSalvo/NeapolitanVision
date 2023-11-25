@@ -9,7 +9,7 @@ import SwiftUI
 import CoreML
 import Vision
 
-struct CameraView: View {
+struct MainView: View {
     
     @StateObject private var model = FrameHandler()
     
@@ -244,6 +244,6 @@ struct CameraView: View {
 }
 
 #Preview {
-    CameraView()
+    MainView()
 }
 
