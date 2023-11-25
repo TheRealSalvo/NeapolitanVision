@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54249D4E2B12B24100A62BBB /* AppModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54249D4D2B12B24100A62BBB /* AppModeEnum.swift */; };
 		5439861D2B07C09D00E52927 /* ImageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439861C2B07C09D00E52927 /* ImageDetector.swift */; };
 		54ACA3BB2B0EFE780007549B /* DetectableItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */; };
 		54CFF4C92B076F6600CB518A /* AIVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4C82B076F6600CB518A /* AIVisionApp.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54249D4D2B12B24100A62BBB /* AppModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeEnum.swift; sourceTree = "<group>"; };
 		5439861C2B07C09D00E52927 /* ImageDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetector.swift; sourceTree = "<group>"; };
 		5443591A2B0C9950007A1732 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectableItemsListView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54249D4C2B12B22500A62BBB /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				54249D4D2B12B24100A62BBB /* AppModeEnum.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		54CFF4BC2B076F6600CB518A = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +79,7 @@
 		54CFF4C72B076F6600CB518A /* AIVision */ = {
 			isa = PBXGroup;
 			children = (
+				54249D4C2B12B22500A62BBB /* Utility */,
 				54DED7002B0E1E5F0034BA93 /* Models */,
 				54CFF4D62B076F7500CB518A /* Camera */,
 				54CFF4C82B076F6600CB518A /* AIVisionApp.swift */,
@@ -186,6 +197,7 @@
 				54DED7052B0E1FEA0034BA93 /* MobileNetV2.mlmodel in Sources */,
 				5439861D2B07C09D00E52927 /* ImageDetector.swift in Sources */,
 				54CFF4EA2B07757A00CB518A /* ImageClassifier.swift in Sources */,
+				54249D4E2B12B24100A62BBB /* AppModeEnum.swift in Sources */,
 				54ACA3BB2B0EFE780007549B /* DetectableItemsListView.swift in Sources */,
 				54DED6FF2B0E1D220034BA93 /* FrameView.swift in Sources */,
 				54DED6FB2B0E1CBA0034BA93 /* CameraView.swift in Sources */,
