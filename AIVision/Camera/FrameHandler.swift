@@ -16,9 +16,6 @@ class FrameHandler: NSObject, ObservableObject {
     private let sessionQueue        = DispatchQueue (label: "sessionQueue")
     private let context             = CIContext()
     
-    var requests = [VNRequest]()
-    var detectionLayer: CALayer! = nil
-    
     override init() {
         super.init()
         checkPermission()
