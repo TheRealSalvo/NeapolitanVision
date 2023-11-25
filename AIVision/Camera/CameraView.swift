@@ -20,12 +20,6 @@ struct CameraView: View {
     @State private var isShowingDetectableItemsView = false
     @State private var requestAvaible               = false
     
-    enum AppMode{
-        case explore
-        case find
-        case none
-    }
-    
     @State var currentMode: AppMode   = .none
     @State var objectToSearch: String = ""
     
@@ -65,7 +59,11 @@ struct CameraView: View {
     }
     
     private func classifyCurrentFrame() {
-        let image = UIImage(cgImage: model.frame!)
+        guard let cgImage = model.frame else {
+            print("no image")
+            return
+        }
+        let image = UIImage(cgImage: cgImage)
         do {
             try self.imageClassifier.makePredictions(
                 for: image,
