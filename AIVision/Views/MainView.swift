@@ -131,7 +131,6 @@ struct MainView: View {
     }
     
     var body: some View {
-        
         NavigationStack{
             VStack{
                 if(classificationLabel != ""){
@@ -150,77 +149,27 @@ struct MainView: View {
                 
                 ScrollView(.horizontal){
                     HStack{
-                        Button(
-                            action: {
-                                if(currentMode == .explore){
-                                    currentMode = .none
-                                    updateClassificationLabel("")
-                                    return
-                                }
-                                currentMode = .explore
-                                
-                                DispatchQueue.global(qos: .background).async(execute: exploreMode)
-                            },
-                            label: {
-                                VStack {
-                                    Image(systemName: "safari")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 75, height: 75)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 25.0)
-                                                .fill(currentMode == .explore ? .purple : .black)
-                                                .stroke(.white, lineWidth: 3)
-                                        )
-                                        .accessibilityHidden(true)
-                                    
-                                    Text("Explore")
-                                        .foregroundColor(.white)
-                                        .accessibilityHidden(true)
-                                }
-                            }
-                        )
+                        ToolButton(
+                            currentMode: $currentMode,
+                            buttonMode: .explore,
+                            labelImage: Image(systemName: "safari"),
+                            labelString: "Explore"
+                        ){
+                            DispatchQueue.global(qos: .background).async(execute: exploreMode)
+                        }
                         .accessibilityHint("Toggle explore mode")
-                        .frame(minWidth: 75, minHeight: 75)
                         .padding()
                         
-                        Button(
-                            action: {
-                                if(currentMode == .find){
-                                    currentMode = .none
-                                    self.objectToSearch = ""
-                                    return
-                                }
-                                currentMode = .find
-                                isShowingDetectableItemsView = true
-                                
-                                DispatchQueue.global(qos: .background).async(execute: findMode)
-                            },
-                            label: {
-                                VStack {
-                                    Image(systemName: "vial.viewfinder")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 75, height: 75)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 25.0)
-                                                .fill(currentMode == .find ? .purple : .black)
-                                                .stroke(.white, lineWidth: 3)
-                                        )
-                                        .accessibilityHidden(true)
-                                    
-                                    Text("Find")
-                                        .foregroundColor(.white)
-                                        .accessibilityHidden(true)
-                                }
-                            }
-                        )
-                        .accessibilityHint("Toggle Find mode")
-                        .frame(minWidth: 75, minHeight: 75)
+                        ToolButton(
+                            currentMode: $currentMode,
+                            buttonMode: .find,
+                            labelImage: Image(systemName: "vial.viewfinder"),
+                            labelString: "Find"
+                        ){
+                            isShowingDetectableItemsView = true
+                            DispatchQueue.global(qos: .background).async(execute: findMode)
+                        }
+                        .accessibilityHint("Toggle find mode")
                         .padding()
                     }
                     .padding()
