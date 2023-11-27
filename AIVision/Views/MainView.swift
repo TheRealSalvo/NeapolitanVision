@@ -75,8 +75,11 @@ struct MainView: View {
     }
     
     private func detectOnCurrentFrame() {
-        print("Detection")
-        let image = UIImage(cgImage: model.frame!)
+        guard let cgImage = model.frame else {
+            print("no image")
+            return
+        }
+        let image = UIImage(cgImage: cgImage)
         do {
             try self.imageDetector.makePredictions(
                 for: image,
