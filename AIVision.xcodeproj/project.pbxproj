@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54249D4E2B12B24100A62BBB /* AppModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54249D4D2B12B24100A62BBB /* AppModeEnum.swift */; };
+		54249D512B12B5BC00A62BBB /* ToolButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54249D502B12B5BC00A62BBB /* ToolButtonView.swift */; };
 		5439861D2B07C09D00E52927 /* ImageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5439861C2B07C09D00E52927 /* ImageDetector.swift */; };
 		54ACA3BB2B0EFE780007549B /* DetectableItemsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */; };
 		54CFF4C92B076F6600CB518A /* AIVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFF4C82B076F6600CB518A /* AIVisionApp.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		54249D4D2B12B24100A62BBB /* AppModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeEnum.swift; sourceTree = "<group>"; };
+		54249D502B12B5BC00A62BBB /* ToolButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolButtonView.swift; sourceTree = "<group>"; };
 		5439861C2B07C09D00E52927 /* ImageDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetector.swift; sourceTree = "<group>"; };
 		5443591A2B0C9950007A1732 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		54ACA3BA2B0EFE780007549B /* DetectableItemsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectableItemsListView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				54249D4D2B12B24100A62BBB /* AppModeEnum.swift */,
+				54249D502B12B5BC00A62BBB /* ToolButtonView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54249D512B12B5BC00A62BBB /* ToolButtonView.swift in Sources */,
 				54DED7082B0E200A0034BA93 /* YOLOv3.mlmodel in Sources */,
 				54CFF4C92B076F6600CB518A /* AIVisionApp.swift in Sources */,
 				54DED7062B0E1FEA0034BA93 /* Resnet50.mlmodel in Sources */,
