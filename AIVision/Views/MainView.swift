@@ -25,7 +25,9 @@ struct MainView: View {
     
     private func exploreMode() {
         while(self.currentMode == .explore){
-            classifyCurrentFrame()
+            Task{
+                classifyCurrentFrame()
+            }
             sleep(1)
         }
     }
@@ -33,7 +35,10 @@ struct MainView: View {
     private func findMode() {
         while(self.currentMode == .find){
             //if( self.objectToSearch == "" ) { continue }
-            detectOnCurrentFrame()
+            Task{
+                detectOnCurrentFrame()
+            }
+            sleep(1)
         }
     }
     
